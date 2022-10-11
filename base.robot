@@ -1,6 +1,8 @@
 *** Settings ***
-Library    RequestsLibrary
-Resource    ./usuarios_keywords.robot        
+Library     RequestsLibrary
+Resource    ./usuarios_keywords.robot 
+Resource    ./login_keywords.robot  
+Resource    ./produtos_keywords.robot     
 
 *** Test Cases ***
 Cenario: GET Todos os Usuarios 200
@@ -34,9 +36,21 @@ Cenario: DELETE Excluir Usuario Especifico 200
     DELETE Endpoint /usuarios com id "NDl4eSvnf0CaP1hP"
     Validar Status COde "200"
 
+Cenario: POST Realizar Login
+    [Tags]    POSTLOGIN
+    Criar Sessao
+    POST Endpoint /login
+    Validar Status Code "200"
+
+Cenario: POST Cadastrar Produto 201
+    [Tags]    POSTPRODUTO
+    Criar Sessao
+    POST Endpoint /produtos
+    Validar Status Code "201"
+
 *** Keywords ***
 Criar Sessao
-    Create Session        serverest    https://serverest.dev
+    Create Session    serverest    https://serverest.dev
 
 Validar Status Code "${statuscode}"
     Should Be True    ${response.status_code} == ${statuscode}
