@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.7 on win32)" generated="20221011 14:48:35.528" rpa="false" schemaversion="3">
+<suite id="s1" name="Base" source="C:\Users\pedro\Documents\RoboTron_Pedro_Carminatti_Compass\base.robot">
+<test id="s1-t1" name="Cenario: GET Todos os Usuarios 200" line="10">
+<kw name="Criar Sessao">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>serverest</arg>
+<arg>https://serverest.dev</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221011 14:48:35.639" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221011 14:48:35.638" endtime="20221011 14:48:35.640"/>
+</kw>
+<status status="PASS" starttime="20221011 14:48:35.638" endtime="20221011 14:48:35.640"/>
+</kw>
+<kw name="GET Endpoint /usuarios">
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/usuarios</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20221011 14:48:36.317" level="INFO">GET Request : url=https://serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20221011 14:48:36.317" level="INFO">GET Response : url=https://serverest.dev/usuarios 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '4a0b1f57-7954-4d2b-82a4-300f220f114b', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'cce1bbc83dadbcab85026d8cdae0c8f2;o=1', 'Date': 'Tue, 11 Oct 2022 17:48:37 GMT', 'Server': 'Google Frontend', 'Content-Length': '9529'} 
+ body={
+    "quantidade": 44,
+    "usuarios": [
+        {
+            "email": "callie.smitham@hotmail.com",
+            "password": "teste",
+            "nome": "Rey Monahan",
+            "administrador": "true",
+            "_id": "03VBDwyZqs7bnQCx"
+        },
+        {
+            "email": "terrell.rutherford@gmail.com",
+            "password": "teste",
+            "nome": "Man Treutel",
+            "administrador": "false",
+            "_id": "0fxEgNBereuPz2jT"
+        },
+        {
+            "nome": "Fulano da Silva",
+            "email": "fulano@qa.com",
+            "password": "teste",
+            "administrador": "true",
+            "_id": "0uxuPY0cbmQhpEz1"
+        },
+        {
+            "email": "shon.donnelly@hotmail.com",
+            "password": "teste",
+            "nome": "Joeann Gulgowski IV",
+            "administrador": "false",
+            "_id": "28Ab3KrK2cnn8JHx"
+        },
+        {
+            "email": "kandi.walsh@yahoo.com",
+            "password": "teste",
+            "nome": "Mr. Mikki Donnelly",
+            "administrador": "true",
+            "_id": "6tISywsoVhZGGHkM"
+        },
+        {
+            "email": "floria.jaskolski@gmail.com",
+            "password": "teste",
+            "nome": "Bettina Kerluke",
+            "administrador": "true",
+            "_id": "8rFpuJyLvSoIoeTU"
+        },
+        {
+            "nome": "Nils_Kunze32",
+            "email": "Ulices.Daniel86@yahoo.com",
+            "password": "AAiQG_KLRmhuSqw",
+            "administrador": "true",
+            "_id": "9TZn8ABAt8MkIFdd"
+        },
+        {
+            "nome": "Misael Adm",
+            "email": "misael@gmail.com.br",
+            "password": "teste",
+            "administrador": "true",
+            "_id": "AnbxuRnyf12bfXYy"
+        },
+        {
+            "nome": "Misael Usuario",
+            "email": "misael@gmail.com",
+            "password": "teste",
+            "administrador": "false",
+            "_id": "C8VUmTSGkIRbJM1W"
+        },
+        {
+            "nome": "Ellis",
+            "email": "Garnet.Lockman@yahoo.com",
+            "password": "teste",
+            "administrador": "false",
+            "_id": "CDcx5NPZxpa3tkpG"
+        },
+        {
+            "nome": "Guadalupe_Heathcote69",
+            "email": "Dereck.Gibson@hotmail.com",
+            "password": "QSKDpNvxKXXTXWK",
+            "administrador": "true",
+            "_id": "CwVm4c82bkaZpNrm"
+        },
+        {
+            "nome": "Brenna",
+            "email": "Rowena1@gmail.com",
+            "password": "teste",
+            "administrador": "false",
+            "_id": "DXMxvxSu9n9rm4Gd"
+        },
+        {
+            "email": "daphine.dickinson@yahoo.com",
+            "password": "teste",
+            "nome": "Mayme Bernier",
+            "administrador": "true",
+            "_id": "EYLWdJCdY0BCDQd0"
+        },
+        {
+            "email": "chester.stokes@yahoo.com",
+            "password": "teste",
+            "nome": "Mr. Clair Hickle",
+            "administrador": "true",
+            "_id": "F9edV23R8VPBDx82"
+        },
+        {
+            "email": "haley.schuster@gmail.com",
+            "password": "teste",
+            "nome": "Kyra Marvin Sr.",
+            "administrador": "true",
+            "_id": "GM4rj2PUiolxUqYI"
+        },
+        {
+            "email": "seth.crooks@hotmail.com",
+            "password": "teste",
+            "nome": "Miss Lance Ebert",
+            "administrador": "true",
+            "_id": "Gbb4YK6AcUYE1Hwc"
+        },
+        {
+            "nome": "Colt_Schumm95",
+            "email": "Chad98@gmail.com",
+            "password": "gRucGsZ5TlAn3PZ",
+            "administrador": "true",
+            "_id": "GsDYuDfdANzGT0do"
+        },
+        {
+            "nome": "Ellis",
+            "email": "Anibal98@yahoo.com",
+            "password": "teste",
+            "administrador": "true",
+            "_id": "HbWjpsSw0xX3VXh0"
+        },
+        {
+            "email": "amber.schuppe@gmail.com",
+            "password": "teste",
+            "nome": "Rosa Conroy",
+            "administrador": "true",
+            "_id": "Ho7cINVfwI4nSPns"
+        },
+        {
+            "email": "misael@carro.com.br",
+            "password": "teste",
+            "nome": "Misael carro",
+            "administrador": "true",
+            "_id": "J5oGUMCrSKwvkQeC"
+        },
+        {
+            "email": "windy.feest@hotmail.com",
+            "password": "teste",
+            "nome": "Emilia Schiller",
+            "administrador": "true",
+            "_id": "KINMfPFFFqv62eAj"
+        },
+        {
+            "nome": "Hosea.Steuber32",
+            "email": "Cara35@hotmail.com",
+            "password": "gUK2DKSsgeBVvwl",
+            "administrador": "true",
+            "_id": "LVpDeBpIW6QsRs3T"
+        },
+        {
+            "email": "mikel.bailey@yahoo.com",
+            "password": "teste",
+            "nome": "Evan Olson",
+            "administrador": "true",
+            "_id": "N1H2f6ewHjLmimtM"
+        },
+        {
+            "nome": "Kaia",
+            "email": "Parker.Schmidt12@yahoo.com",
+            "password": "teste",
+            "administrador": "true",
+            "_id": "NALIXlXS4l61EGPJ"
+        },
+        {
+            "nome": "Porter",
+            "email": "Cecelia_Shields@yahoo.com",
+            "password": "teste",
+            "administrador": "true",
+            "_id": "NwpJvayZ5b4Hy7Bn"
+        },
+        {
+            "email": "batatinhafrita@123.com.br",
+            "password": "teste",
+            "nome": "Nicole Boyle",
+            "administrador": "true",
+            "_id": "O5ZsFPTW9oKDUUA2"
+        },
+        {
+            "email": "misael@qa.com.br",
+            "password": "teste",
+            "nome": "Misael Reis",
+            "administrador": "true",
+            "_id": "OUlPufJq0qDZBlDY"
+        },
+        {
+            "nome": "Porter",
+            "email": "Levi.Hamill@yahoo.com",
+            "password": "teste",
+            "administrador": "false",
+            "_id": "PTcPSeu6t2QII8g5"
+        },
+        {
+            "email": "kristie.daniel@gmail.com",
+            "password": "teste",
+            "nome": "Miss Theresia Schultz",
+            "administrador": "false",
+            "_id": "RXQQTQTc4dLunHKk"
+        },
+        {
+            "email": "hilario.spencer@hotmail.com",
+            "password": "teste",
+            "nome": "Miss Toby McClure",
+            "administrador": "true",
+            "_id": "TrGCbedHUPdP22Zc"
+        },
+        {
+            "nome": "Brenna",
+            "email": "Cooper.Denesik24@gmail.com",
+            "password": "teste",
+            "administrador": "true",
+            "_id": "Ue5XRzQxEMeOWjhq"
+        },
+        {
+            "nome": "Jaylen_OConnell76",
+            "email": "Gonzalo.Christiansen26@gmail.com",
+            "password": "YW7mpY5X3yblTAP",
+            "administrador": "true",
+            "_id": "VGjTFLyfq1myLbwz"
+        },
+        {
+            "email": "misael@email.com",
+            "password": "teste",
+            "nome": "Misael Usuario",
+            "administrador": "false",
+            "_id": "YHD6QcCFvEmI349w"
+        },
+        {
+            "nome": "Eduardo McLaughlin",
+            "email": "Kirsten.Rowe41@gmail.com",
+            "password": "xAG49aOVaWy4N67",
+            "administrador": "true",
+            "_id": "bvXR2Vln34DHdx32"
+        },
+        {
+            "email": "veta.runolfsdottir@gmail.com",
+            "password": "teste",
+            "nome": "Michel Bashirian",
+            "administrador": "true",
+            "_id": "cVq1jz78E8fZRvAa"
+        },
+        {
+            "email": "kendal.runolfsdottir@yahoo.com",
+            "password": "teste",
+            "nome": "Marlin Kuhic DVM",
+            "administrador": "true",
+            "_id": "h95KNZ5ZBKLNUpm5"
+        },
+        {
+            "email": "dorthy.nienow@hotmail.com",
+            "password": "teste",
+            "nome": "Michiko D'Amore",
+            "administrador": "true",
+            "_id": "o4bUEWHmq8CLJyeJ"
+        },
+        {
+            "nome": "Sofia_Harber18",
+            "email": "Kaya65@gmail.com",
+            "password": "Dqy_LZtgMPrfKZ9",
+            "administrador": "true",
+            "_id": "obL7OuElJM4eCs3y"
+        },
+        {
+            "email": "kam.volkman@yahoo.com",
+            "password": "teste",
+            "nome": "Mr. Dortha Beahan",
+            "administrador": "true",
+            "_id": "ppEkhwNjztDwQCpw"
+        },
+        {
+            "email": "dominique.rice@yahoo.com",
+            "password": "teste",
+            "nome": "Hayden Green",
+            "administrador": "true",
+            "_id": "tv9pa0lHCjcIbm2s"
+        },
+        {
+            "nome": "Kaia",
+            "email": "Andreane52@yahoo.com",
+            "password": "teste",
+            "administrador": "false",
+            "_id": "uXPqP3ENUhTZn3X7"
+        },
+        {
+            "email": "mitchell.goldner@yahoo.com",
+            "password": "teste",
+            "nome": "Vertie Blanda PhD",
+            "administrador": "true",
+            "_id": "wtIFnwVxIYkZvbiG"
+        },
+        {
+            "email": "lenna.kulas@gmail.com",
+            "password": "teste",
+            "nome": "Mr. Dominique Fahey",
+            "administrador": "true",
+            "_id": "x58emptEvmOsG9o0"
+        },
+        {
+            "email": "erin.monahan@gmail.com",
+            "password": "teste",
+            "nome": "Vicente Upton",
+            "administrador": "true",
+            "_id": "zmzoVYFnp5QRlz3R"
+        }
+    ]
+} 
+ </msg>
+<msg timestamp="20221011 14:48:36.317" level="INFO">C:\Users\pedro\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20221011 14:48:36.317" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221011 14:48:35.640" endtime="20221011 14:48:36.328"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221011 14:48:36.331" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221011 14:48:36.328" endtime="20221011 14:48:36.331"/>
+</kw>
+<status status="PASS" starttime="20221011 14:48:35.640" endtime="20221011 14:48:36.331"/>
+</kw>
+<kw name="Validar Status Code &quot;200&quot;" sourcename="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20221011 14:48:36.335" endtime="20221011 14:48:36.338"/>
+</kw>
+<status status="PASS" starttime="20221011 14:48:36.333" endtime="20221011 14:48:36.338"/>
+</kw>
+<kw name="Printar Conteudo Response">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Nome:${response.json()["usuarios"][2]["nome"]}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20221011 14:48:36.338" endtime="20221011 14:48:36.340"/>
+</kw>
+<status status="PASS" starttime="20221011 14:48:36.338" endtime="20221011 14:48:36.340"/>
+</kw>
+<tag>GET</tag>
+<status status="PASS" starttime="20221011 14:48:35.637" endtime="20221011 14:48:36.340"/>
+</test>
+<test id="s1-t2" name="Cenario: GET Usuario Especifico 200" line="23">
+<kw name="Criar Sessao">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>serverest</arg>
+<arg>https://serverest.dev</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221011 14:48:36.342" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221011 14:48:36.342" endtime="20221011 14:48:36.342"/>
+</kw>
+<status status="PASS" starttime="20221011 14:48:36.342" endtime="20221011 14:48:36.342"/>
+</kw>
+<kw name="GET Endpoint /usuarios com id &quot;0uxuPY0cbmQhpEz1&quot;" sourcename="GET Endpoint /usuarios com id &quot;${id}&quot;">
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>serverest</arg>
+<arg>/usuarios/${id}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20221011 14:48:36.768" level="INFO">GET Request : url=https://serverest.dev/usuarios/0uxuPY0cbmQhpEz1 
+ path_url=/usuarios/0uxuPY0cbmQhpEz1 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20221011 14:48:36.768" level="INFO">GET Response : url=https://serverest.dev/usuarios/0uxuPY0cbmQhpEz1 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '00835bbf-d8e1-4aee-91fd-fcabf18d8557', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'aa91efb0a3a2e0ddfdd41fdd57e4c900', 'Date': 'Tue, 11 Oct 2022 17:48:38 GMT', 'Server': 'Google Frontend', 'Content-Length': '148'} 
+ body={
+    "nome": "Fulano da Silva",
+    "email": "fulano@qa.com",
+    "password": "teste",
+    "administrador": "true",
+    "_id": "0uxuPY0cbmQhpEz1"
+} 
+ </msg>
+<msg timestamp="20221011 14:48:36.778" level="INFO">C:\Users\pedro\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20221011 14:48:36.778" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221011 14:48:36.343" endtime="20221011 14:48:36.778"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20221011 14:48:36.782" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221011 14:48:36.781" endtime="20221011 14:48:36.782"/>
+</kw>
+<status status="PASS" starttime="20221011 14:48:36.343" endtime="20221011 14:48:36.783"/>
+</kw>
+<kw name="Validar Status Code &quot;200&quot;" sourcename="Validar Status Code &quot;${statuscode}&quot;">
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20221011 14:48:36.784" endtime="20221011 14:48:36.785"/>
+</kw>
+<status status="PASS" starttime="20221011 14:48:36.784" endtime="20221011 14:48:36.786"/>
+</kw>
+<tag>GET</tag>
+<status status="PASS" starttime="20221011 14:48:36.341" endtime="20221011 14:48:36.786"/>
+</test>
+<status status="PASS" starttime="20221011 14:48:35.528" endtime="20221011 14:48:36.788"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">GET</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Base">Base</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
