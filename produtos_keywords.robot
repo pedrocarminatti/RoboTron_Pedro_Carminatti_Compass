@@ -3,14 +3,14 @@ Library    RequestsLibrary
 
 *** Keywords ***
 POST Endpoint /produtos
-    ${header}              Create Dictionary    Authorizathion=${token_auth}
-    ${data}                Create Dictionary    nome=MouseRazerTest    preco=250    descricao=Mouse    quantidade=100
+    ${header}              Create Dictionary    Authorization=${token_auth}
+    ${data}                Create Dictionary    nome=MouseRazerTestaaa    preco=250    descricao=Mouse    quantidade=100
     ${response}            POST On Session    serverest    /produtos    json=${data}    headers=${header}
     Log To Console         Response: ${response.content}
     Set Global Variable    ${response}
 
 DELETE Endpoint /produtos
-    ${header}              Create Dictionary    Authorizathion=${token_auth}
+    ${header}              Create Dictionary    Authorization=${token_auth}
     ${response}            DELETE On Session    serverest    /produtos/${id_produto}    headers=${header}
     Log To Console         Response: ${response.content}
     Set Global Variable    ${response}

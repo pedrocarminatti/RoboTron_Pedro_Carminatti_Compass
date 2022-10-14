@@ -1,26 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.7 on win32)" generated="20221013 15:52:01.305" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.10.7 on win32)" generated="20221014 13:29:02.278" rpa="false" schemaversion="3">
 <suite id="s1" name="Base" source="C:\Users\pedro\Documents\RoboTron_Pedro_Carminatti_Compass\base.robot">
-<test id="s1-t1" name="Cenario: DELETE Excluir Produto 200" line="52">
+<test id="s1-t1" name="Cenario: POST Cadastrar Produto 201" line="45">
 <kw name="Criar Sessao">
+<msg timestamp="20221014 13:29:02.411" level="TRACE">Arguments: [  ]</msg>
 <kw name="Create Session" library="RequestsLibrary">
 <arg>serverest</arg>
-<arg>http://localhost:3000</arg>
+<arg>https://serverest.dev</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20221013 15:52:01.417" level="INFO">Creating Session using : alias=serverest, url=http://localhost:3000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20221013 15:52:01.417" endtime="20221013 15:52:01.417"/>
+<msg timestamp="20221014 13:29:02.411" level="TRACE">Arguments: [ 'serverest' | 'https://serverest.dev' ]</msg>
+<msg timestamp="20221014 13:29:02.411" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg timestamp="20221014 13:29:02.411" level="DEBUG">Creating session: serverest</msg>
+<msg timestamp="20221014 13:29:02.411" level="TRACE">Return: &lt;requests.sessions.Session object at 0x000002051395A980&gt;</msg>
+<status status="PASS" starttime="20221014 13:29:02.411" endtime="20221014 13:29:02.411"/>
 </kw>
-<status status="PASS" starttime="20221013 15:52:01.417" endtime="20221013 15:52:01.418"/>
+<msg timestamp="20221014 13:29:02.411" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 13:29:02.411" endtime="20221014 13:29:02.411"/>
 </kw>
 <kw name="Fazer Login e Armazenar Token" library="login_keywords">
+<msg timestamp="20221014 13:29:02.412" level="TRACE">Arguments: [  ]</msg>
 <kw name="POST Endpoint /login" library="login_keywords">
+<msg timestamp="20221014 13:29:02.412" level="TRACE">Arguments: [  ]</msg>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${data}</var>
 <arg>email=${email_login}</arg>
 <arg>password=${password_login}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20221013 15:52:01.419" level="INFO">${data} = {'email': 'fulano@qa.com', 'password': 'teste'}</msg>
-<status status="PASS" starttime="20221013 15:52:01.418" endtime="20221013 15:52:01.419"/>
+<msg timestamp="20221014 13:29:02.412" level="TRACE">Arguments: [ 'email=${email_login}' | 'password=${password_login}' ]</msg>
+<msg timestamp="20221014 13:29:02.413" level="TRACE">Return: {'email': 'fulano@qa.com', 'password': 'teste'}</msg>
+<msg timestamp="20221014 13:29:02.413" level="INFO">${data} = {'email': 'fulano@qa.com', 'password': 'teste'}</msg>
+<status status="PASS" starttime="20221014 13:29:02.412" endtime="20221014 13:29:02.413"/>
 </kw>
 <kw name="POST On Session" library="RequestsLibrary">
 <var>${response}</var>
@@ -28,88 +37,122 @@
 <arg>/login</arg>
 <arg>json=${data}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<msg timestamp="20221013 15:52:01.431" level="INFO">POST Request : url=http://localhost:3000/login 
+<msg timestamp="20221014 13:29:02.413" level="TRACE">Arguments: [ 'serverest' | '/login' | json={'email': 'fulano@qa.com', 'password': 'teste'} ]</msg>
+<msg timestamp="20221014 13:29:02.417" level="DEBUG">Starting new HTTPS connection (1): serverest.dev:443</msg>
+<msg timestamp="20221014 13:29:02.857" level="DEBUG">https://serverest.dev:443 "POST /login HTTP/1.1" 200 265</msg>
+<msg timestamp="20221014 13:29:02.858" level="INFO">POST Request : url=https://serverest.dev/login 
  path_url=/login 
  headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '47', 'Content-Type': 'application/json'} 
  body=b'{"email": "fulano@qa.com", "password": "teste"}' 
  </msg>
-<msg timestamp="20221013 15:52:01.431" level="INFO">POST Response : url=http://localhost:3000/login 
+<msg timestamp="20221014 13:29:02.858" level="INFO">POST Response : url=https://serverest.dev/login 
  status=200, reason=OK 
- headers={'Access-Control-Allow-Origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '07996824-8a7b-4800-a67c-7300f5aec410', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '265', 'Date': 'Thu, 13 Oct 2022 18:52:01 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'd8dfc68b-9e5c-4df9-8add-1ed5f5be5cd1', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '9465fb8adcc1bc56740d5fb9bb1558b8;o=1', 'Date': 'Fri, 14 Oct 2022 16:29:01 GMT', 'Server': 'Google Frontend', 'Content-Length': '265'} 
  body={
     "message": "Login realizado com sucesso",
-    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1Njg3MTIxLCJleHAiOjE2NjU2ODc3MjF9.iz0TmYZvBUkYUSQh93oBhPl_ZgnM_HCFl0FpMatHv_4"
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo"
 } 
  </msg>
-<msg timestamp="20221013 15:52:01.431" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20221013 15:52:01.419" endtime="20221013 15:52:01.431"/>
+<msg timestamp="20221014 13:29:02.859" level="INFO">C:\Users\pedro\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20221014 13:29:02.860" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<msg timestamp="20221014 13:29:02.860" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221014 13:29:02.413" endtime="20221014 13:29:02.860"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Response: ${response.content}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20221013 15:52:01.431" endtime="20221013 15:52:01.433"/>
+<msg timestamp="20221014 13:29:02.862" level="TRACE">Arguments: [ 'Response: {\n    "message": "Login realizado com sucesso",\n    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo"\n}' ]</msg>
+<msg timestamp="20221014 13:29:02.863" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 13:29:02.861" endtime="20221014 13:29:02.863"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20221013 15:52:01.433" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20221013 15:52:01.433" endtime="20221013 15:52:01.433"/>
+<msg timestamp="20221014 13:29:02.864" level="TRACE">Arguments: [ '${response}' ]</msg>
+<msg timestamp="20221014 13:29:02.864" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg timestamp="20221014 13:29:02.864" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 13:29:02.863" endtime="20221014 13:29:02.865"/>
 </kw>
-<status status="PASS" starttime="20221013 15:52:01.418" endtime="20221013 15:52:01.433"/>
+<msg timestamp="20221014 13:29:02.865" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 13:29:02.412" endtime="20221014 13:29:02.865"/>
 </kw>
 <kw name="Validar Ter Logado" library="login_keywords">
+<msg timestamp="20221014 13:29:02.865" level="TRACE">Arguments: [  ]</msg>
 <kw name="Should Be Equal" library="BuiltIn">
 <arg>${response.json()["message"]}</arg>
 <arg>Login realizado com sucesso</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20221013 15:52:01.434" endtime="20221013 15:52:01.434"/>
+<msg timestamp="20221014 13:29:02.867" level="TRACE">Arguments: [ 'Login realizado com sucesso' | 'Login realizado com sucesso' ]</msg>
+<msg timestamp="20221014 13:29:02.867" level="DEBUG">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'str'&gt;</msg>
+<msg timestamp="20221014 13:29:02.867" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 13:29:02.866" endtime="20221014 13:29:02.867"/>
 </kw>
 <kw name="Should Not Be Empty" library="BuiltIn">
 <arg>${response.json()["authorization"]}</arg>
 <doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20221013 15:52:01.434" level="INFO">Length is 192</msg>
-<status status="PASS" starttime="20221013 15:52:01.434" endtime="20221013 15:52:01.435"/>
+<msg timestamp="20221014 13:29:02.868" level="TRACE">Arguments: [ 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo' ]</msg>
+<msg timestamp="20221014 13:29:02.868" level="INFO">Length is 192</msg>
+<msg timestamp="20221014 13:29:02.868" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 13:29:02.867" endtime="20221014 13:29:02.868"/>
 </kw>
-<status status="PASS" starttime="20221013 15:52:01.433" endtime="20221013 15:52:01.435"/>
+<msg timestamp="20221014 13:29:02.868" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 13:29:02.865" endtime="20221014 13:29:02.868"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${token_auth}</var>
 <arg>${response.json()["authorization"]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20221013 15:52:01.435" level="INFO">${token_auth} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1Njg3MTIxLCJleHAiOjE2NjU2ODc3MjF9.iz0TmYZvBUkYUSQh93oBhPl_ZgnM_HCFl0FpMatHv_4</msg>
-<status status="PASS" starttime="20221013 15:52:01.435" endtime="20221013 15:52:01.435"/>
+<msg timestamp="20221014 13:29:02.869" level="TRACE">Arguments: [ 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo' ]</msg>
+<msg timestamp="20221014 13:29:02.870" level="TRACE">Return: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo'</msg>
+<msg timestamp="20221014 13:29:02.870" level="INFO">${token_auth} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo</msg>
+<status status="PASS" starttime="20221014 13:29:02.868" endtime="20221014 13:29:02.870"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Token Salvo: ${token_auth}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20221013 15:52:01.435" endtime="20221013 15:52:01.436"/>
+<msg timestamp="20221014 13:29:02.870" level="TRACE">Arguments: [ 'Token Salvo: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo' ]</msg>
+<msg timestamp="20221014 13:29:02.871" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 13:29:02.870" endtime="20221014 13:29:02.871"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${token_auth}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20221013 15:52:01.436" level="INFO">${token_auth} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1Njg3MTIxLCJleHAiOjE2NjU2ODc3MjF9.iz0TmYZvBUkYUSQh93oBhPl_ZgnM_HCFl0FpMatHv_4</msg>
-<status status="PASS" starttime="20221013 15:52:01.436" endtime="20221013 15:52:01.436"/>
+<msg timestamp="20221014 13:29:02.871" level="TRACE">Arguments: [ '${token_auth}' ]</msg>
+<msg timestamp="20221014 13:29:02.872" level="INFO">${token_auth} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo</msg>
+<msg timestamp="20221014 13:29:02.872" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 13:29:02.871" endtime="20221014 13:29:02.872"/>
 </kw>
-<status status="PASS" starttime="20221013 15:52:01.418" endtime="20221013 15:52:01.436"/>
+<msg timestamp="20221014 13:29:02.872" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 13:29:02.412" endtime="20221014 13:29:02.872"/>
 </kw>
-<kw name="Criar um Produto e Armazenar ID" library="produtos_keywords">
 <kw name="POST Endpoint /produtos" library="produtos_keywords">
+<msg timestamp="20221014 13:29:02.873" level="TRACE">Arguments: [  ]</msg>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${header}</var>
-<arg>Authorizathion=${token_auth}</arg>
+<arg>Authorization=${token_auth}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20221013 15:52:01.437" level="INFO">${header} = {'Authorizathion': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1Njg3MTIxLCJleHAiOjE2NjU2ODc3MjF9.iz0TmYZvBUkYUSQh93oBhPl_ZgnM_HC...</msg>
-<status status="PASS" starttime="20221013 15:52:01.437" endtime="20221013 15:52:01.437"/>
+<msg timestamp="20221014 13:29:02.874" level="TRACE">Arguments: [ 'Authorization=${token_auth}' ]</msg>
+<msg timestamp="20221014 13:29:02.874" level="TRACE">Return: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo'}</msg>
+<msg timestamp="20221014 13:29:02.875" level="INFO">${header} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLem...</msg>
+<status status="PASS" starttime="20221014 13:29:02.874" endtime="20221014 13:29:02.875"/>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${data}</var>
-<arg>nome=MouseRazerTest</arg>
+<arg>nome=MouseRazerTestaaa</arg>
 <arg>preco=250</arg>
 <arg>descricao=Mouse</arg>
 <arg>quantidade=100</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20221013 15:52:01.438" level="INFO">${data} = {'nome': 'MouseRazerTest', 'preco': '250', 'descricao': 'Mouse', 'quantidade': '100'}</msg>
-<status status="PASS" starttime="20221013 15:52:01.437" endtime="20221013 15:52:01.438"/>
+<msg timestamp="20221014 13:29:02.875" level="TRACE">Arguments: [ 'nome=MouseRazerTestaaa' | 'preco=250' | 'descricao=Mouse' | 'quantidade=100' ]</msg>
+<msg timestamp="20221014 13:29:02.876" level="TRACE">Return: {'descricao': 'Mouse',
+ 'nome': 'MouseRazerTestaaa',
+ 'preco': '250',
+ 'quantidade': '100'}</msg>
+<msg timestamp="20221014 13:29:02.876" level="INFO">${data} = {'nome': 'MouseRazerTestaaa', 'preco': '250', 'descricao': 'Mouse', 'quantidade': '100'}</msg>
+<status status="PASS" starttime="20221014 13:29:02.875" endtime="20221014 13:29:02.876"/>
 </kw>
 <kw name="POST On Session" library="RequestsLibrary">
 <var>${response}</var>
@@ -118,71 +161,64 @@
 <arg>json=${data}</arg>
 <arg>headers=${header}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<msg timestamp="20221013 15:52:01.443" level="INFO">POST Request : url=http://localhost:3000/produtos 
+<msg timestamp="20221014 13:29:02.877" level="TRACE">Arguments: [ 'serverest' | '/produtos' | json={'descricao': 'Mouse',
+ 'nome': 'MouseRazerTestaaa',
+ 'preco': '250',
+ 'quantidade': '100'} | headers={'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo'} ]</msg>
+<msg timestamp="20221014 13:29:03.075" level="DEBUG">https://serverest.dev:443 "POST /produtos HTTP/1.1" 400 53</msg>
+<msg timestamp="20221014 13:29:03.075" level="INFO">POST Request : url=https://serverest.dev/produtos 
  path_url=/produtos 
- headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorizathion': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1Njg3MTIxLCJleHAiOjE2NjU2ODc3MjF9.iz0TmYZvBUkYUSQh93oBhPl_ZgnM_HCFl0FpMatHv_4', 'Content-Length': '85', 'Content-Type': 'application/json'} 
- body=b'{"nome": "MouseRazerTest", "preco": "250", "descricao": "Mouse", "quantidade": "100"}' 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo', 'Content-Length': '88', 'Content-Type': 'application/json'} 
+ body=b'{"nome": "MouseRazerTestaaa", "preco": "250", "descricao": "Mouse", "quantidade": "100"}' 
  </msg>
-<msg timestamp="20221013 15:52:01.443" level="INFO">POST Response : url=http://localhost:3000/produtos 
- status=401, reason=Unauthorized 
- headers={'Access-Control-Allow-Origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '56a09f82-f500-465f-9aad-11389a08e8e9', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '103', 'Date': 'Thu, 13 Oct 2022 18:52:01 GMT', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+<msg timestamp="20221014 13:29:03.075" level="INFO">POST Response : url=https://serverest.dev/produtos 
+ status=400, reason=Bad Request 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'f4321f09-5d3e-4223-94d1-78fb86340a9b', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '64198d22c905ee0fcc06e2e807fb959d', 'Date': 'Fri, 14 Oct 2022 16:29:02 GMT', 'Server': 'Google Frontend', 'Content-Length': '53'} 
  body={
-    "message": "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
+    "message": "Já existe produto com esse nome"
 } 
  </msg>
-<msg timestamp="20221013 15:52:01.444" level="FAIL">HTTPError: 401 Client Error: Unauthorized for url: http://localhost:3000/produtos</msg>
-<status status="FAIL" starttime="20221013 15:52:01.438" endtime="20221013 15:52:01.465"/>
+<msg timestamp="20221014 13:29:03.076" level="INFO">C:\Users\pedro\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20221014 13:29:03.077" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://serverest.dev/produtos</msg>
+<msg timestamp="20221014 13:29:03.078" level="DEBUG">Traceback (most recent call last):
+  File "C:\Users\pedro\AppData\Local\Programs\Python\Python310\lib\site-packages\RequestsLibrary\utils.py", line 154, in decorator
+    return func(*args, **kwargs)
+  File "C:\Users\pedro\AppData\Local\Programs\Python\Python310\lib\site-packages\RequestsLibrary\RequestsOnSessionKeywords.py", line 62, in post_on_session
+    self._check_status(expected_status, response, msg)
+  File "C:\Users\pedro\AppData\Local\Programs\Python\Python310\lib\site-packages\RequestsLibrary\SessionKeywords.py", line 570, in _check_status
+    resp.raise_for_status()
+  File "C:\Users\pedro\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://serverest.dev/produtos</msg>
+<status status="FAIL" starttime="20221014 13:29:02.876" endtime="20221014 13:29:03.078"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Response: ${response.content}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" starttime="20221013 15:52:01.465" endtime="20221013 15:52:01.465"/>
+<status status="NOT RUN" starttime="20221014 13:29:03.079" endtime="20221014 13:29:03.079"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="NOT RUN" starttime="20221013 15:52:01.465" endtime="20221013 15:52:01.465"/>
+<status status="NOT RUN" starttime="20221014 13:29:03.079" endtime="20221014 13:29:03.079"/>
 </kw>
-<status status="FAIL" starttime="20221013 15:52:01.437" endtime="20221013 15:52:01.466"/>
+<status status="FAIL" starttime="20221014 13:29:02.873" endtime="20221014 13:29:03.079"/>
 </kw>
-<kw name="Validar Ter Criado Produto" library="produtos_keywords">
-<status status="NOT RUN" starttime="20221013 15:52:01.466" endtime="20221013 15:52:01.466"/>
+<kw name="Validar Status Code &quot;201&quot;" sourcename="Validar Status Code &quot;${statuscode}&quot;">
+<status status="NOT RUN" starttime="20221014 13:29:03.080" endtime="20221014 13:29:03.080"/>
 </kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${id_produto}</var>
-<arg>${response.json()["_id"]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" starttime="20221013 15:52:01.466" endtime="20221013 15:52:01.466"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>ID Produto: ${id_produto}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" starttime="20221013 15:52:01.466" endtime="20221013 15:52:01.466"/>
-</kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<arg>${id_produto}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="NOT RUN" starttime="20221013 15:52:01.466" endtime="20221013 15:52:01.466"/>
-</kw>
-<status status="FAIL" starttime="20221013 15:52:01.437" endtime="20221013 15:52:01.467"/>
-</kw>
-<kw name="DELETE Endpoint /produtos" library="produtos_keywords">
-<status status="NOT RUN" starttime="20221013 15:52:01.468" endtime="20221013 15:52:01.468"/>
-</kw>
-<kw name="Validar Status Code &quot;200&quot;" sourcename="Validar Status Code &quot;${statuscode}&quot;">
-<status status="NOT RUN" starttime="20221013 15:52:01.468" endtime="20221013 15:52:01.468"/>
-</kw>
-<tag>DELETEPRODUTO</tag>
-<status status="FAIL" starttime="20221013 15:52:01.408" endtime="20221013 15:52:01.469">HTTPError: 401 Client Error: Unauthorized for url: http://localhost:3000/produtos</status>
+<tag>POSTPRODUTO</tag>
+<status status="FAIL" starttime="20221014 13:29:02.411" endtime="20221014 13:29:03.081">HTTPError: 400 Client Error: Bad Request for url: https://serverest.dev/produtos</status>
 </test>
-<status status="FAIL" starttime="20221013 15:52:01.305" endtime="20221013 15:52:01.471"/>
+<status status="FAIL" starttime="20221014 13:29:02.279" endtime="20221014 13:29:03.083"/>
 </suite>
 <statistics>
 <total>
 <stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1" skip="0">DELETEPRODUTO</stat>
+<stat pass="0" fail="1" skip="0">POSTPRODUTO</stat>
 </tag>
 <suite>
 <stat pass="0" fail="1" skip="0" id="s1" name="Base">Base</stat>

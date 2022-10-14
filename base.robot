@@ -59,7 +59,7 @@ Cenario: DELETE Excluir Produto 200
 
 *** Keywords ***
 Criar Sessao
-    Create Session    serverest    http://localhost:3000
+    Create Session    serverest    https://serverest.dev
 
 Validar Status Code "${statuscode}"
     Should Be True    ${response.status_code} == ${statuscode}
