@@ -1,227 +1,497 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.7 on win32)" generated="20221014 13:29:02.278" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.10.7 on win32)" generated="20221014 16:28:21.482" rpa="false" schemaversion="3">
 <suite id="s1" name="Base" source="C:\Users\pedro\Documents\RoboTron_Pedro_Carminatti_Compass\base.robot">
-<test id="s1-t1" name="Cenario: POST Cadastrar Produto 201" line="45">
+<test id="s1-t1" name="Cenario: GET Todos os Usuarios 200" line="9">
 <kw name="Criar Sessao">
-<msg timestamp="20221014 13:29:02.411" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20221014 16:28:21.605" level="TRACE">Arguments: [  ]</msg>
 <kw name="Create Session" library="RequestsLibrary">
 <arg>serverest</arg>
 <arg>https://serverest.dev</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20221014 13:29:02.411" level="TRACE">Arguments: [ 'serverest' | 'https://serverest.dev' ]</msg>
-<msg timestamp="20221014 13:29:02.411" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<msg timestamp="20221014 13:29:02.411" level="DEBUG">Creating session: serverest</msg>
-<msg timestamp="20221014 13:29:02.411" level="TRACE">Return: &lt;requests.sessions.Session object at 0x000002051395A980&gt;</msg>
-<status status="PASS" starttime="20221014 13:29:02.411" endtime="20221014 13:29:02.411"/>
+<msg timestamp="20221014 16:28:21.605" level="TRACE">Arguments: [ 'serverest' | 'https://serverest.dev' ]</msg>
+<msg timestamp="20221014 16:28:21.605" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg timestamp="20221014 16:28:21.605" level="DEBUG">Creating session: serverest</msg>
+<msg timestamp="20221014 16:28:21.605" level="TRACE">Return: &lt;requests.sessions.Session object at 0x000001D6AEAD6FE0&gt;</msg>
+<status status="PASS" starttime="20221014 16:28:21.605" endtime="20221014 16:28:21.605"/>
 </kw>
-<msg timestamp="20221014 13:29:02.411" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20221014 13:29:02.411" endtime="20221014 13:29:02.411"/>
+<msg timestamp="20221014 16:28:21.606" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 16:28:21.605" endtime="20221014 16:28:21.606"/>
 </kw>
-<kw name="Fazer Login e Armazenar Token" library="login_keywords">
-<msg timestamp="20221014 13:29:02.412" level="TRACE">Arguments: [  ]</msg>
-<kw name="POST Endpoint /login" library="login_keywords">
-<msg timestamp="20221014 13:29:02.412" level="TRACE">Arguments: [  ]</msg>
-<kw name="Create Dictionary" library="BuiltIn">
-<var>${data}</var>
-<arg>email=${email_login}</arg>
-<arg>password=${password_login}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20221014 13:29:02.412" level="TRACE">Arguments: [ 'email=${email_login}' | 'password=${password_login}' ]</msg>
-<msg timestamp="20221014 13:29:02.413" level="TRACE">Return: {'email': 'fulano@qa.com', 'password': 'teste'}</msg>
-<msg timestamp="20221014 13:29:02.413" level="INFO">${data} = {'email': 'fulano@qa.com', 'password': 'teste'}</msg>
-<status status="PASS" starttime="20221014 13:29:02.412" endtime="20221014 13:29:02.413"/>
-</kw>
-<kw name="POST On Session" library="RequestsLibrary">
+<kw name="GET Endpoint /usuarios" library="usuarios_keywords">
+<msg timestamp="20221014 16:28:21.606" level="TRACE">Arguments: [  ]</msg>
+<kw name="GET On Session" library="RequestsLibrary">
 <var>${response}</var>
 <arg>serverest</arg>
-<arg>/login</arg>
-<arg>json=${data}</arg>
-<doc>Sends a POST request on a previously created HTTP Session.</doc>
-<msg timestamp="20221014 13:29:02.413" level="TRACE">Arguments: [ 'serverest' | '/login' | json={'email': 'fulano@qa.com', 'password': 'teste'} ]</msg>
-<msg timestamp="20221014 13:29:02.417" level="DEBUG">Starting new HTTPS connection (1): serverest.dev:443</msg>
-<msg timestamp="20221014 13:29:02.857" level="DEBUG">https://serverest.dev:443 "POST /login HTTP/1.1" 200 265</msg>
-<msg timestamp="20221014 13:29:02.858" level="INFO">POST Request : url=https://serverest.dev/login 
- path_url=/login 
- headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '47', 'Content-Type': 'application/json'} 
- body=b'{"email": "fulano@qa.com", "password": "teste"}' 
+<arg>/usuarios</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20221014 16:28:21.606" level="TRACE">Arguments: [ 'serverest' | '/usuarios' ]</msg>
+<msg timestamp="20221014 16:28:21.609" level="DEBUG">Starting new HTTPS connection (1): serverest.dev:443</msg>
+<msg timestamp="20221014 16:28:22.089" level="DEBUG">https://serverest.dev:443 "GET /usuarios HTTP/1.1" 200 11404</msg>
+<msg timestamp="20221014 16:28:22.127" level="INFO">GET Request : url=https://serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
  </msg>
-<msg timestamp="20221014 13:29:02.858" level="INFO">POST Response : url=https://serverest.dev/login 
+<msg timestamp="20221014 16:28:22.128" level="INFO">GET Response : url=https://serverest.dev/usuarios 
  status=200, reason=OK 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'd8dfc68b-9e5c-4df9-8add-1ed5f5be5cd1', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '9465fb8adcc1bc56740d5fb9bb1558b8;o=1', 'Date': 'Fri, 14 Oct 2022 16:29:01 GMT', 'Server': 'Google Frontend', 'Content-Length': '265'} 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': '01247360-81a8-4528-84d1-b59157d2de7b', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'debfae6acf88c1e0feea4e977cfde40b;o=1', 'Date': 'Fri, 14 Oct 2022 19:28:21 GMT', 'Server': 'Google Frontend', 'Content-Length': '11404'} 
  body={
-    "message": "Login realizado com sucesso",
-    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo"
+    "quantidade": 46,
+    "usuarios": [
+        {
+            "nome": "Preston c3a4f33a-0711-4203-aad0-26d273bc9c4d",
+            "email": "automation-postUserd992315b-bd77-4f00-85b6-4d3d5cc0a83e@moviautomation.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "21uOWzG1thZevazJ"
+        },
+        {
+            "nome": "Schuyler 43e7e8c4-f81c-4dfd-bf62-ed93b6bf7a6a",
+            "email": "automation-postUser4703832a-d55e-4a3c-9959-c802534f6bf3@moviautomation.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "22LMfxE9DyTqwvWU"
+        },
+        {
+            "nome": "Jarbus Priestu",
+            "email": "testeiuol@gmail.com",
+            "password": "123",
+            "administrador": "true",
+            "_id": "30lXwaHSD0uxXgQ0"
+        },
+        {
+            "nome": "Daphne a2361ea0-324a-4243-8c06-2af9d1dc206e",
+            "email": "automation-postUserd72f2eb3-672c-4710-aab3-60bc0c52be53@moviautomation.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "4amFMZY3uz1bEcgD"
+        },
+        {
+            "nome": "Carter 5ec73398-5172-40dd-82d1-c9aa0cb60f3d",
+            "email": "automation-postUserac5a30f9-24e5-4cbc-8a9e-a3b17521dd7b@moviautomation.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "5PULdKh3rye6nOVN"
+        },
+        {
+            "nome": "Evalyn 3e561653-afe4-464c-a97f-d7020e434fc7",
+            "email": "automation-postUser083f4e8b-92c7-4626-b15e-294777396a9d@moviautomation.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "6EGVNWCDJSEoNS1h"
+        },
+        {
+            "nome": "Grover73",
+            "email": "Dell.Jacobi27@yahoo.com",
+            "password": "_a8aBiOR2B0ES3E",
+            "administrador": "true",
+            "_id": "6i5fV2jZGgNrK8AP"
+        },
+        {
+            "nome": "Annette97",
+            "email": "Vicenta.Murphy84@yahoo.com",
+            "password": "qcFE_0L_KHL_y4B",
+            "administrador": "true",
+            "_id": "9bqzJOfK0tHZjNcJ"
+        },
+        {
+            "nome": "Pedro Teste Valido",
+            "email": "pedrotestevalido@teste.com",
+            "password": "teste",
+            "administrador": "true",
+            "_id": "B87r6dEn5Qpjh5Np"
+        },
+        {
+            "nome": "Monserrate_Jast41",
+            "email": "Princess_Fritsch4@gmail.com",
+            "password": "PAvabilBA98At4L",
+            "administrador": "true",
+            "_id": "HDskPO5NKvHuLj3D"
+        },
+        {
+            "nome": "Clinton a4c42ffb-d154-4cc8-88c6-749cbbc27457",
+            "email": "automation-postUser954201f9-31bb-49a0-a16a-249c16a1d92a@moviautomation.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "HbxaEv7GT0eod6Gf"
+        },
+        {
+            "nome": "Freddie Hessel",
+            "email": "automation-putUser61d11367-ab81-49a6-97ee-13d8c8a59ef8@moviautomation.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "J5tQKfYu7pKvLaR0"
+        },
+        {
+            "nome": "Dimitri Oberbrunner",
+            "email": "automation-putUserAva_Goldner85@hotmail.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "JWa6v1M8li8rUMog"
+        },
+        {
+            "nome": "Ida 3c694600-e621-4708-8aa7-be82a018cebb",
+            "email": "automation-postUserbc03e224-c2e2-4458-a0e9-5049d08ef9dd@moviautomation.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "JYGMRKKp2a9G9V0d"
+        },
+        {
+            "nome": "Eve.Blanda",
+            "email": "Andreanne81@gmail.com",
+            "password": "7NJEZ590jfxurvq",
+            "administrador": "true",
+            "_id": "KLKYgi5LC5zOU6KO"
+        },
+        {
+            "nome": "Fulano da Silva",
+            "email": "alex@qa.com.br",
+            "password": "teste",
+            "administrador": "true",
+            "_id": "LjZcqCN0aqHCThh1"
+        },
+        {
+            "nome": "Lera.Labadie2",
+            "email": "Haven_Waelchi@hotmail.com",
+            "password": "k0nZvAphO6U5GHf",
+            "administrador": "true",
+            "_id": "TGCU7nTj7QrXmJRr"
+        },
+        {
+            "nome": "Chance 1d05d2aa-b956-411d-b05b-1ee5cba7a540",
+            "email": "automation-postUser818ec62b-2538-4c59-ad5a-9652af831c52@moviautomation.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "UV2uPIsp7hlMMfOZ"
+        },
+        {
+            "nome": "Mekhi11",
+            "email": "Jason.Feil73@hotmail.com",
+            "password": "_CY9nAU00gRgu1B",
+            "administrador": "true",
+            "_id": "cIzIXKHbZY54lynO"
+        },
+        {
+            "nome": "Kelly",
+            "email": "kellybragainveste@gmail.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "dOef37uladFuxyih"
+        },
+        {
+            "nome": "Jodie_Kihn",
+            "email": "Johnathan_Nader20@gmail.com",
+            "password": "InfRplLD9FfyegD",
+            "administrador": "true",
+            "_id": "g1AUlg7dtY5fDbKx"
+        },
+        {
+            "nome": "Noah 765e9113-bcba-4f1b-afb5-ace237841851",
+            "email": "automation-postUser9a8884e6-f8c8-435a-94cb-ca5b3b9a945f@moviautomation.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "h3K9a4altS09Rbiw"
+        },
+        {
+            "nome": "Garnett Rau",
+            "email": "automation-putUser98744b5c-4687-4df6-b61a-c955547a62fa@moviautomation.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "hZcDJtHcmpqSXqlF"
+        },
+        {
+            "nome": "Mohamed e72ed973-e6d8-4d26-979d-ea15ac337434",
+            "email": "automation-postUser9c9f696a-7bfc-4ec4-b7e0-a01602a6d212@moviautomation.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "hrPbDjxUOkQmejF6"
+        },
+        {
+            "nome": "Tremayne eb93cd1d-819b-4b84-8999-647f9c3a7476",
+            "email": "automation-postUser887ef559-7570-482c-8298-4cb3103909f2@moviautomation.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "iSnsLUjqWSkpAsnC"
+        },
+        {
+            "nome": "Carlos José",
+            "email": "exemplo_email233@gmail.com",
+            "password": "asd5688",
+            "administrador": "false",
+            "_id": "ihfJrIKspP3aVYt4"
+        },
+        {
+            "nome": "Mabel97",
+            "email": "Meta.Pfannerstill60@hotmail.com",
+            "password": "xq_2S9oU7M3lJUq",
+            "administrador": "true",
+            "_id": "in7NGchG39ekXp9o"
+        },
+        {
+            "nome": "Candelario.Smitham44",
+            "email": "Rey.Hilpert@hotmail.com",
+            "password": "DiOlBpYOmRCbxw5",
+            "administrador": "true",
+            "_id": "jGcpHHbZh6J8ICTZ"
+        },
+        {
+            "nome": "Pedro Alcantara",
+            "email": "exemplo_email2894564@gmail.com",
+            "password": "asd56",
+            "administrador": "false",
+            "_id": "jiSfQRlL6L8qCaS0"
+        },
+        {
+            "nome": "Jers Priest",
+            "email": "testeiuprewassll@gmail.com",
+            "password": "123",
+            "administrador": "true",
+            "_id": "jxgWLByQMrnjtFh5"
+        },
+        {
+            "nome": "Amari d5a56a06-56f7-48e8-b1cc-db7e4be0ac6d",
+            "email": "automation-postUser7b9cab0e-36e0-42bb-9af1-88d1e4303101@moviautomation.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "kgeUvjrF6NNnTiss"
+        },
+        {
+            "nome": "Ransom Gerlach",
+            "email": "automation-putUser3b00330e-1e83-4b5c-bcef-be65312a378d@moviautomation.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "m2ki7qL9s0FXr6Fn"
+        },
+        {
+            "nome": "Pedro Teste Valido",
+            "email": "pedroteste1@teste.com",
+            "password": "teste",
+            "administrador": "true",
+            "_id": "mrUUnVHLGxNxNtmA"
+        },
+        {
+            "nome": "Kylie 4122b7c8-b884-4f1e-8465-fb4a24e43170",
+            "email": "automation-postUser43d0a14f-39d9-4fa9-8678-22143a3efb21@moviautomation.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "n7ID2ZGDLvmgEoAK"
+        },
+        {
+            "nome": "Anderson Oliveira",
+            "email": "andersonteste@teste.com",
+            "password": "Andersonteste123321@!",
+            "administrador": "true",
+            "_id": "nd7rrEgepyLcW4sV"
+        },
+        {
+            "nome": "Trinity Upton",
+            "email": "automation-putUser5b82783b-ebb3-426d-8bcf-3bdf755f3c9d@moviautomation.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "pH2SAG9CcUMa5Hi8"
+        },
+        {
+            "nome": "William Luis Visentini",
+            "email": "email@gmail.com",
+            "password": "passsword",
+            "administrador": "true",
+            "_id": "r3Lls0WadJ5f84Lc"
+        },
+        {
+            "nome": "Jerss Priest",
+            "email": "testeiuprewasslll@gmail.com",
+            "password": "123",
+            "administrador": "true",
+            "_id": "tNXlC6uQzlsFxGdc"
+        },
+        {
+            "nome": "Lizzie 5cc24306-cd04-4872-ad52-b0c8107d0d49",
+            "email": "automation-postUser6fc74d0a-fb4a-40da-ba5e-a4fb4c14a6ef@moviautomation.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "tchzFIPyVRio2nLe"
+        },
+        {
+            "nome": "Ellsworth95",
+            "email": "Retta.Wisozk32@gmail.com",
+            "password": "WLDRUGIRVmiuWaj",
+            "administrador": "true",
+            "_id": "ueHYyFx7nMvexc15"
+        },
+        {
+            "nome": "Felicita68",
+            "email": "Myriam_Gleichner@yahoo.com",
+            "password": "LiA8oLP4N8GimSk",
+            "administrador": "true",
+            "_id": "v36YIUBqucLkF2vf"
+        },
+        {
+            "nome": "Anderson Usuario",
+            "email": "andersonusuario@teste.com",
+            "password": "Andersonteste123321@!",
+            "administrador": "false",
+            "_id": "vKwtvIpMvjdxOIWa"
+        },
+        {
+            "nome": "tata",
+            "email": "jfdhfjd@gmail.com",
+            "password": "123",
+            "administrador": "false",
+            "_id": "wCRITiDj8Y11pWPF"
+        },
+        {
+            "nome": "Audra Denesik",
+            "email": "automation-putUserJudson94@gmail.com",
+            "password": "1234",
+            "administrador": "true",
+            "_id": "wNk6Va4oEzx4Mq6f"
+        },
+        {
+            "nome": "William V",
+            "email": "email.email@email.com",
+            "password": "password",
+            "administrador": "true",
+            "_id": "xlQWWaqy0PKoom99"
+        },
+        {
+            "nome": "Amara_Sanford",
+            "email": "Magnolia87@hotmail.com",
+            "password": "F28P6Wq_6DnV5SU",
+            "administrador": "true",
+            "_id": "zcSf9O4Ize3zS3BX"
+        }
+    ]
 } 
  </msg>
-<msg timestamp="20221014 13:29:02.859" level="INFO">C:\Users\pedro\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+<msg timestamp="20221014 16:28:22.129" level="INFO">C:\Users\pedro\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg timestamp="20221014 13:29:02.860" level="TRACE">Return: &lt;Response [200]&gt;</msg>
-<msg timestamp="20221014 13:29:02.860" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20221014 13:29:02.413" endtime="20221014 13:29:02.860"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>Response: ${response.content}</arg>
-<doc>Logs the given message to the console.</doc>
-<msg timestamp="20221014 13:29:02.862" level="TRACE">Arguments: [ 'Response: {\n    "message": "Login realizado com sucesso",\n    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo"\n}' ]</msg>
-<msg timestamp="20221014 13:29:02.863" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20221014 13:29:02.861" endtime="20221014 13:29:02.863"/>
+<msg timestamp="20221014 16:28:22.132" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<msg timestamp="20221014 16:28:22.133" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221014 16:28:21.606" endtime="20221014 16:28:22.133"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20221014 13:29:02.864" level="TRACE">Arguments: [ '${response}' ]</msg>
-<msg timestamp="20221014 13:29:02.864" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<msg timestamp="20221014 13:29:02.864" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20221014 13:29:02.863" endtime="20221014 13:29:02.865"/>
+<msg timestamp="20221014 16:28:22.134" level="TRACE">Arguments: [ '${response}' ]</msg>
+<msg timestamp="20221014 16:28:22.137" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg timestamp="20221014 16:28:22.138" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 16:28:22.134" endtime="20221014 16:28:22.138"/>
 </kw>
-<msg timestamp="20221014 13:29:02.865" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20221014 13:29:02.412" endtime="20221014 13:29:02.865"/>
+<msg timestamp="20221014 16:28:22.139" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 16:28:21.606" endtime="20221014 16:28:22.139"/>
 </kw>
-<kw name="Validar Ter Logado" library="login_keywords">
-<msg timestamp="20221014 13:29:02.865" level="TRACE">Arguments: [  ]</msg>
-<kw name="Should Be Equal" library="BuiltIn">
-<arg>${response.json()["message"]}</arg>
-<arg>Login realizado com sucesso</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<msg timestamp="20221014 13:29:02.867" level="TRACE">Arguments: [ 'Login realizado com sucesso' | 'Login realizado com sucesso' ]</msg>
-<msg timestamp="20221014 13:29:02.867" level="DEBUG">Argument types are:
-&lt;class 'str'&gt;
-&lt;class 'str'&gt;</msg>
-<msg timestamp="20221014 13:29:02.867" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20221014 13:29:02.866" endtime="20221014 13:29:02.867"/>
+<kw name="Validar Status Code &quot;200&quot;" library="common" sourcename="Validar Status Code &quot;${statuscode}&quot;">
+<msg timestamp="20221014 16:28:22.142" level="TRACE">Arguments: [ ${statuscode}='200' ]</msg>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<msg timestamp="20221014 16:28:22.146" level="TRACE">Arguments: [ '200 == 200' ]</msg>
+<msg timestamp="20221014 16:28:22.146" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 16:28:22.143" endtime="20221014 16:28:22.146"/>
 </kw>
-<kw name="Should Not Be Empty" library="BuiltIn">
-<arg>${response.json()["authorization"]}</arg>
-<doc>Verifies that the given item is not empty.</doc>
-<msg timestamp="20221014 13:29:02.868" level="TRACE">Arguments: [ 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo' ]</msg>
-<msg timestamp="20221014 13:29:02.868" level="INFO">Length is 192</msg>
-<msg timestamp="20221014 13:29:02.868" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20221014 13:29:02.867" endtime="20221014 13:29:02.868"/>
+<msg timestamp="20221014 16:28:22.146" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 16:28:22.141" endtime="20221014 16:28:22.146"/>
 </kw>
-<msg timestamp="20221014 13:29:02.868" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20221014 13:29:02.865" endtime="20221014 13:29:02.868"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${token_auth}</var>
-<arg>${response.json()["authorization"]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20221014 13:29:02.869" level="TRACE">Arguments: [ 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo' ]</msg>
-<msg timestamp="20221014 13:29:02.870" level="TRACE">Return: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo'</msg>
-<msg timestamp="20221014 13:29:02.870" level="INFO">${token_auth} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo</msg>
-<status status="PASS" starttime="20221014 13:29:02.868" endtime="20221014 13:29:02.870"/>
-</kw>
+<kw name="Printar Conteudo Response" library="usuarios_keywords">
+<msg timestamp="20221014 16:28:22.147" level="TRACE">Arguments: [  ]</msg>
 <kw name="Log To Console" library="BuiltIn">
-<arg>Token Salvo: ${token_auth}</arg>
+<arg>Nome: ${response}</arg>
 <doc>Logs the given message to the console.</doc>
-<msg timestamp="20221014 13:29:02.870" level="TRACE">Arguments: [ 'Token Salvo: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo' ]</msg>
-<msg timestamp="20221014 13:29:02.871" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20221014 13:29:02.870" endtime="20221014 13:29:02.871"/>
+<msg timestamp="20221014 16:28:22.147" level="TRACE">Arguments: [ 'Nome: &lt;Response [200]&gt;' ]</msg>
+<msg timestamp="20221014 16:28:22.148" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 16:28:22.147" endtime="20221014 16:28:22.148"/>
 </kw>
-<kw name="Set Global Variable" library="BuiltIn">
-<arg>${token_auth}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20221014 13:29:02.871" level="TRACE">Arguments: [ '${token_auth}' ]</msg>
-<msg timestamp="20221014 13:29:02.872" level="INFO">${token_auth} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo</msg>
-<msg timestamp="20221014 13:29:02.872" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20221014 13:29:02.871" endtime="20221014 13:29:02.872"/>
+<msg timestamp="20221014 16:28:22.148" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 16:28:22.147" endtime="20221014 16:28:22.148"/>
 </kw>
-<msg timestamp="20221014 13:29:02.872" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20221014 13:29:02.412" endtime="20221014 13:29:02.872"/>
+<tag>GET</tag>
+<status status="PASS" starttime="20221014 16:28:21.604" endtime="20221014 16:28:22.148"/>
+</test>
+<test id="s1-t2" name="Cenario: GET Usuario Especifico 200" line="22">
+<kw name="Criar Sessao">
+<msg timestamp="20221014 16:28:22.150" level="TRACE">Arguments: [  ]</msg>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>serverest</arg>
+<arg>https://serverest.dev</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221014 16:28:22.150" level="TRACE">Arguments: [ 'serverest' | 'https://serverest.dev' ]</msg>
+<msg timestamp="20221014 16:28:22.151" level="INFO">Creating Session using : alias=serverest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg timestamp="20221014 16:28:22.151" level="DEBUG">Creating session: serverest</msg>
+<msg timestamp="20221014 16:28:22.151" level="TRACE">Return: &lt;requests.sessions.Session object at 0x000001D6AEB50D60&gt;</msg>
+<status status="PASS" starttime="20221014 16:28:22.150" endtime="20221014 16:28:22.151"/>
 </kw>
-<kw name="POST Endpoint /produtos" library="produtos_keywords">
-<msg timestamp="20221014 13:29:02.873" level="TRACE">Arguments: [  ]</msg>
-<kw name="Create Dictionary" library="BuiltIn">
-<var>${header}</var>
-<arg>Authorization=${token_auth}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20221014 13:29:02.874" level="TRACE">Arguments: [ 'Authorization=${token_auth}' ]</msg>
-<msg timestamp="20221014 13:29:02.874" level="TRACE">Return: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo'}</msg>
-<msg timestamp="20221014 13:29:02.875" level="INFO">${header} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLem...</msg>
-<status status="PASS" starttime="20221014 13:29:02.874" endtime="20221014 13:29:02.875"/>
+<msg timestamp="20221014 16:28:22.151" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 16:28:22.150" endtime="20221014 16:28:22.151"/>
 </kw>
-<kw name="Create Dictionary" library="BuiltIn">
-<var>${data}</var>
-<arg>nome=MouseRazerTestaaa</arg>
-<arg>preco=250</arg>
-<arg>descricao=Mouse</arg>
-<arg>quantidade=100</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20221014 13:29:02.875" level="TRACE">Arguments: [ 'nome=MouseRazerTestaaa' | 'preco=250' | 'descricao=Mouse' | 'quantidade=100' ]</msg>
-<msg timestamp="20221014 13:29:02.876" level="TRACE">Return: {'descricao': 'Mouse',
- 'nome': 'MouseRazerTestaaa',
- 'preco': '250',
- 'quantidade': '100'}</msg>
-<msg timestamp="20221014 13:29:02.876" level="INFO">${data} = {'nome': 'MouseRazerTestaaa', 'preco': '250', 'descricao': 'Mouse', 'quantidade': '100'}</msg>
-<status status="PASS" starttime="20221014 13:29:02.875" endtime="20221014 13:29:02.876"/>
-</kw>
-<kw name="POST On Session" library="RequestsLibrary">
+<kw name="GET Endpoint /usuarios com id &quot;B87r6dEn5Qpjh5Np&quot;" library="usuarios_keywords" sourcename="GET Endpoint /usuarios com id &quot;${id}&quot;">
+<msg timestamp="20221014 16:28:22.152" level="TRACE">Arguments: [ ${id}='B87r6dEn5Qpjh5Np' ]</msg>
+<kw name="GET On Session" library="RequestsLibrary">
 <var>${response}</var>
 <arg>serverest</arg>
-<arg>/produtos</arg>
-<arg>json=${data}</arg>
-<arg>headers=${header}</arg>
-<doc>Sends a POST request on a previously created HTTP Session.</doc>
-<msg timestamp="20221014 13:29:02.877" level="TRACE">Arguments: [ 'serverest' | '/produtos' | json={'descricao': 'Mouse',
- 'nome': 'MouseRazerTestaaa',
- 'preco': '250',
- 'quantidade': '100'} | headers={'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo'} ]</msg>
-<msg timestamp="20221014 13:29:03.075" level="DEBUG">https://serverest.dev:443 "POST /produtos HTTP/1.1" 400 53</msg>
-<msg timestamp="20221014 13:29:03.075" level="INFO">POST Request : url=https://serverest.dev/produtos 
- path_url=/produtos 
- headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNjY1NzY0OTQxLCJleHAiOjE2NjU3NjU1NDF9.QnnF-tLxrAWDA_hhZdM0EY0Gu134XLemJrAUOxSsYFo', 'Content-Length': '88', 'Content-Type': 'application/json'} 
- body=b'{"nome": "MouseRazerTestaaa", "preco": "250", "descricao": "Mouse", "quantidade": "100"}' 
+<arg>/usuarios/${id}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20221014 16:28:22.152" level="TRACE">Arguments: [ 'serverest' | '/usuarios/B87r6dEn5Qpjh5Np' ]</msg>
+<msg timestamp="20221014 16:28:22.154" level="DEBUG">Starting new HTTPS connection (1): serverest.dev:443</msg>
+<msg timestamp="20221014 16:28:22.669" level="DEBUG">https://serverest.dev:443 "GET /usuarios/B87r6dEn5Qpjh5Np HTTP/1.1" 200 164</msg>
+<msg timestamp="20221014 16:28:22.670" level="INFO">GET Request : url=https://serverest.dev/usuarios/B87r6dEn5Qpjh5Np 
+ path_url=/usuarios/B87r6dEn5Qpjh5Np 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
  </msg>
-<msg timestamp="20221014 13:29:03.075" level="INFO">POST Response : url=https://serverest.dev/produtos 
- status=400, reason=Bad Request 
- headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'f4321f09-5d3e-4223-94d1-78fb86340a9b', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '64198d22c905ee0fcc06e2e807fb959d', 'Date': 'Fri, 14 Oct 2022 16:29:02 GMT', 'Server': 'Google Frontend', 'Content-Length': '53'} 
+<msg timestamp="20221014 16:28:22.670" level="INFO">GET Response : url=https://serverest.dev/usuarios/B87r6dEn5Qpjh5Np 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'x-moesif-transaction-id': 'b8a6ec06-218d-416c-9b8f-45fcc4baa2d3', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': 'a32dd91d1dff7f7c482074ef350d2612', 'Date': 'Fri, 14 Oct 2022 19:28:21 GMT', 'Server': 'Google Frontend', 'Content-Length': '164'} 
  body={
-    "message": "Já existe produto com esse nome"
+    "nome": "Pedro Teste Valido",
+    "email": "pedrotestevalido@teste.com",
+    "password": "teste",
+    "administrador": "true",
+    "_id": "B87r6dEn5Qpjh5Np"
 } 
  </msg>
-<msg timestamp="20221014 13:29:03.076" level="INFO">C:\Users\pedro\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+<msg timestamp="20221014 16:28:22.670" level="INFO">C:\Users\pedro\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg timestamp="20221014 13:29:03.077" level="FAIL">HTTPError: 400 Client Error: Bad Request for url: https://serverest.dev/produtos</msg>
-<msg timestamp="20221014 13:29:03.078" level="DEBUG">Traceback (most recent call last):
-  File "C:\Users\pedro\AppData\Local\Programs\Python\Python310\lib\site-packages\RequestsLibrary\utils.py", line 154, in decorator
-    return func(*args, **kwargs)
-  File "C:\Users\pedro\AppData\Local\Programs\Python\Python310\lib\site-packages\RequestsLibrary\RequestsOnSessionKeywords.py", line 62, in post_on_session
-    self._check_status(expected_status, response, msg)
-  File "C:\Users\pedro\AppData\Local\Programs\Python\Python310\lib\site-packages\RequestsLibrary\SessionKeywords.py", line 570, in _check_status
-    resp.raise_for_status()
-  File "C:\Users\pedro\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: https://serverest.dev/produtos</msg>
-<status status="FAIL" starttime="20221014 13:29:02.876" endtime="20221014 13:29:03.078"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>Response: ${response.content}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" starttime="20221014 13:29:03.079" endtime="20221014 13:29:03.079"/>
+<msg timestamp="20221014 16:28:22.671" level="TRACE">Return: &lt;Response [200]&gt;</msg>
+<msg timestamp="20221014 16:28:22.671" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20221014 16:28:22.152" endtime="20221014 16:28:22.671"/>
 </kw>
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="NOT RUN" starttime="20221014 13:29:03.079" endtime="20221014 13:29:03.079"/>
+<msg timestamp="20221014 16:28:22.671" level="TRACE">Arguments: [ '${response}' ]</msg>
+<msg timestamp="20221014 16:28:22.672" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg timestamp="20221014 16:28:22.672" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 16:28:22.671" endtime="20221014 16:28:22.672"/>
 </kw>
-<status status="FAIL" starttime="20221014 13:29:02.873" endtime="20221014 13:29:03.079"/>
+<msg timestamp="20221014 16:28:22.672" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 16:28:22.151" endtime="20221014 16:28:22.672"/>
 </kw>
-<kw name="Validar Status Code &quot;201&quot;" sourcename="Validar Status Code &quot;${statuscode}&quot;">
-<status status="NOT RUN" starttime="20221014 13:29:03.080" endtime="20221014 13:29:03.080"/>
+<kw name="Validar Status Code &quot;200&quot;" library="common" sourcename="Validar Status Code &quot;${statuscode}&quot;">
+<msg timestamp="20221014 16:28:22.673" level="TRACE">Arguments: [ ${statuscode}='200' ]</msg>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${response.status_code} == ${statuscode}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<msg timestamp="20221014 16:28:22.675" level="TRACE">Arguments: [ '200 == 200' ]</msg>
+<msg timestamp="20221014 16:28:22.675" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 16:28:22.673" endtime="20221014 16:28:22.675"/>
 </kw>
-<tag>POSTPRODUTO</tag>
-<status status="FAIL" starttime="20221014 13:29:02.411" endtime="20221014 13:29:03.081">HTTPError: 400 Client Error: Bad Request for url: https://serverest.dev/produtos</status>
+<msg timestamp="20221014 16:28:22.675" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20221014 16:28:22.672" endtime="20221014 16:28:22.675"/>
+</kw>
+<tag>GET</tag>
+<status status="PASS" starttime="20221014 16:28:22.149" endtime="20221014 16:28:22.676"/>
 </test>
-<status status="FAIL" starttime="20221014 13:29:02.279" endtime="20221014 13:29:03.083"/>
+<status status="PASS" starttime="20221014 16:28:21.484" endtime="20221014 16:28:22.687"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1" skip="0">POSTPRODUTO</stat>
+<stat pass="2" fail="0" skip="0">GET</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Base">Base</stat>
+<stat pass="2" fail="0" skip="0" id="s1" name="Base">Base</stat>
 </suite>
 </statistics>
 <errors>

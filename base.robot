@@ -2,7 +2,8 @@
 Library     RequestsLibrary
 Resource    ./usuarios_keywords.robot 
 Resource    ./login_keywords.robot  
-Resource    ./produtos_keywords.robot     
+Resource    ./produtos_keywords.robot  
+Resource    ./common.robot   
 
 *** Test Cases ***
 Cenario: GET Todos os Usuarios 200
@@ -21,7 +22,7 @@ Cenario: POST Criar Novo Usuario 201
 Cenario: GET Usuario Especifico 200
     [Tags]    GET
     Criar Sessao
-    GET Endpoint /usuarios com id "0uxuPY0cbmQhpEz1"
+    GET Endpoint /usuarios com id "B87r6dEn5Qpjh5Np"
     Validar Status Code "200"
 
 Cenario: PUT Editar Usuario Especifico 200
@@ -57,12 +58,12 @@ Cenario: DELETE Excluir Produto 200
     DELETE Endpoint /produtos
     Validar Status Code "200"
 
+Cenario: POST Criar Usuario de Massa Estatica 201
+    [Tags]    POSTCRIARUSUARIOESTATICO
+    Criar Sessao
+    Criar Usuario Estatico Valido
+    Validar Status Code "201"
+
 *** Keywords ***
 Criar Sessao
     Create Session    serverest    https://serverest.dev
-
-Validar Status Code "${statuscode}"
-    Should Be True    ${response.status_code} == ${statuscode}
-
-Printar Conteudo Response
-    Log To Console    Nome:${response.json()["usuarios"][2]["nome"]}

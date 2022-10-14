@@ -1,0 +1,26 @@
+{
+    "user_valido":{
+        "nome": "Pedro Teste Valido",
+        "email": "pedrotestevalido@teste.com",
+        "password": "teste",
+        "administrador": "true"
+    },
+    "user_invalido":{
+        "nome": "Pedro Teste Invalido",
+        "email": "fulano@qa.com",
+        "password": "teste",
+        "administrador": "true"
+    },
+    "user_sem_senha":{
+        "nome": "Pedro Teste Sem Senha",
+        "email": "pedrosemsenha@teste.com",
+        "password": "",
+        "administrador": "true"
+    },
+    "user_sem_email":{
+        "nome": "Pedro Teste Sem Email",
+        "email": "",
+        "password": "teste",
+        "administrador": "true" 
+    }
+}
